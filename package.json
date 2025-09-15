@@ -1,0 +1,15 @@
+{
+  "name": "wpnfinite-theme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-flag.js && vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean-dev-flag": "node -e \"require('fs').existsSync('.vite-dev')&&require('fs').unlinkSync('.vite-dev')\""
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

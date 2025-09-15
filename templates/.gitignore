@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Node deps
+node_modules/
+npm-debug.log*
+
+# Build caches / output (adjust to your setup)
+.vite/
+dist/
+assets/**/*.map
+coverage/

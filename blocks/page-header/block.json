@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "wpnfinite/page-header",
+    "title": "WPNfinite Page Header",
+    "category": "theme",
+    "description": "Context-aware page header/hero with title, subtitle, optional breadcrumbs and background image.",
+    "icon": "cover-image",
+    "supports": {
+        "align": [
+            "wide",
+            "full"
+        ],
+        "html": false
+    },
+    "attributes": {
+        "height": {
+            "type": "string",
+            "default": "40vh"
+        },
+        "showBreadcrumbs": {
+            "type": "boolean",
+            "default": true
+        },
+        "overlay": {
+            "type": "string",
+            "default": "gradient"
+        },
+        "textAlign": {
+            "type": "string",
+            "default": "left"
+        },
+        "kicker": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "render": "file:./render.php"
+}

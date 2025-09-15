@@ -1,0 +1,21 @@
+<!--
+  Default index template — lists posts with a header and footer parts.
+-->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}}} -->
+<main class="wpnfinite-main">
+  <!-- wp:heading {"level":1} -->Latest Posts<!-- /wp:heading -->
+  <!-- wp:query {"queryId":1,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date"}} -->
+  <!-- wp:post-template -->
+  <!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+  <!-- wp:post-title {"isLink":true} /-->
+  <!-- wp:post-excerpt {"moreText":"Read more →"} /-->
+  <!-- /wp:group -->
+  <!-- /wp:post-template -->
+  <!-- wp:query-pagination /-->
+  <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

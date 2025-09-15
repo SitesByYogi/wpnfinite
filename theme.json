@@ -1,0 +1,157 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "duotone": [],
+      "palette": [
+        {
+          "slug": "bg",
+          "name": "Background",
+          "color": "#0f1115"
+        },
+        {
+          "slug": "surface",
+          "name": "Surface",
+          "color": "#161a22"
+        },
+        {
+          "slug": "primary",
+          "name": "Primary",
+          "color": "#4f8cff"
+        },
+        {
+          "slug": "secondary",
+          "name": "Secondary",
+          "color": "#22c55e"
+        },
+        {
+          "slug": "accent",
+          "name": "Accent",
+          "color": "#f59e0b"
+        },
+        {
+          "slug": "muted",
+          "name": "Muted",
+          "color": "#94a3b8"
+        },
+        {
+          "slug": "white",
+          "name": "White",
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "custom": {
+      "brand": {
+        "name": "WPNfinite",
+        "url": "https://wpnfinite.com"
+      }
+    },
+    "layout": {
+      "contentSize": "750px",
+      "wideSize": "1200px"
+    },
+    "spacing": {
+      "spacingScale": {
+        "steps": 8
+      },
+      "units": [
+        "px",
+        "rem",
+        "vw",
+        "vh",
+        "%"
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif",
+          "name": "System Sans",
+          "slug": "system-sans"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "xs",
+          "size": "0.75rem",
+          "name": "XS"
+        },
+        {
+          "slug": "sm",
+          "size": "0.875rem",
+          "name": "SM"
+        },
+        {
+          "slug": "base",
+          "size": "1rem",
+          "name": "Base"
+        },
+        {
+          "slug": "lg",
+          "size": "1.125rem",
+          "name": "LG"
+        },
+        {
+          "slug": "xl",
+          "size": "1.25rem",
+          "name": "XL"
+        },
+        {
+          "slug": "2xl",
+          "size": "1.5rem",
+          "name": "2XL"
+        },
+        {
+          "slug": "3xl",
+          "size": "1.875rem",
+          "name": "3XL"
+        },
+        {
+          "slug": "4xl",
+          "size": "2.25rem",
+          "name": "4XL"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--bg)",
+      "text": "var(--wp--preset--color--white)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-sans)"
+    }
+  },
+  "customTemplates": [
+    {
+      "name": "page-no-header",
+      "title": "Page (No Header)",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "blank",
+      "title": "Blank (No Header & Footer)",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ]
+}

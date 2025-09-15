@@ -1,0 +1,706 @@
+/* ========== Base ==========
+   Minimal baseline; most visual design via theme.json
+================================ */
+:root {
+  --radius: 16px;
+  --primary-color: #6366f1;
+  --text-primary: #0f172a;
+  --text-light: #ffffff;
+}
+
+.wpnfinite-card {
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: rgba(255, 255, 255, .02);
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+
+/* ========== Page Header / Hero ========== */
+.wpn-hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 4rem 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.wpn-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .35));
+  transition: opacity .2s ease;
+}
+
+.wpn-hero.overlay-none::before {
+  opacity: 0;
+}
+
+.wpn-hero.overlay-dim::before {
+  opacity: .75;
+}
+
+.wpn-hero.overlay-gradient::before {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .6)),
+    radial-gradient(1000px 400px at 20% 10%, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0));
+}
+
+.wpn-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, 92vw);
+  text-align: left;
+}
+
+.wpn-hero.text-center .wpn-hero__inner {
+  text-align: center;
+}
+
+.wpn-hero.text-right .wpn-hero__inner {
+  text-align: right;
+}
+
+.wpn-hero__kicker {
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .85;
+  margin: 0 0 .5rem 0;
+  color: var(--wp--preset--color--accent, #f59e0b);
+}
+
+.wpn-hero__title {
+  margin: 0 0 .5rem 0;
+  font-size: clamp(1.75rem, 2.2vw + 1.5rem, 3rem);
+  line-height: 1.1;
+}
+
+.wpn-hero__subtitle {
+  margin: 0 0 1rem 0;
+  max-width: 60ch;
+  opacity: .9;
+}
+
+.wpn-bc {
+  margin-top: 1rem;
+  font-size: .9rem;
+  opacity: .9;
+}
+
+.wpn-bc a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.wpn-bc .sep {
+  margin: 0 .5rem;
+  opacity: .6;
+}
+
+/* ========== Site Header (Personal-Shape style)
+   Brand | Nav | Utilities (Account + Cart)
+========================================== */
+.wpn-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(20px);
+  transition: all .35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wpn-nav.scrolled {
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 8px 25px rgba(2, 6, 23, .08);
+  padding: 8px 0;
+}
+
+/* Header container → 3 zones */
+.wpn-nav .nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Brand: logo + title */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  min-width: 0;
+}
+
+.brand-logo {
+  flex: 0 0 auto;
+}
+
+.logo a {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -.5px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Primary nav */
+.nav-links {
+  min-width: 0;
+  justify-self: center;
+}
+
+.nav-links .wp-block-navigation__container {
+  display: flex;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.nav-links .wp-block-navigation-item__content {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: .95rem;
+  position: relative;
+  padding: .5rem 0;
+  transition: transform .2s, color .2s;
+}
+
+.nav-links .wp-block-navigation-item__content:hover {
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* centered underline */
+.nav-links .wp-block-navigation-item__content::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateX(-50%);
+  border-radius: 1px;
+  transition: width .25s;
+}
+
+.nav-links .wp-block-navigation-item__content:hover::after {
+  width: 100%;
+}
+
+.nav-links .current-menu-item>.wp-block-navigation-item__content,
+.nav-links .wp-block-navigation-item__content[aria-current="page"] {
+  color: var(--primary-color);
+}
+
+/* Utilities (Account + Cart) */
+.nav-utilities {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: nowrap;
+}
+
+.nav-utilities>* {
+  margin: 0 !important;
+}
+
+/* remove default block margins */
+.nav-utilities svg {
+  display: block;
+  vertical-align: middle;
+}
+
+/* Account button (text pill) */
+.nav-utilities .wp-block-button .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 .9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .9rem;
+  border: 2px solid color-mix(in srgb, var(--primary-color) 25%, transparent);
+  background: color-mix(in srgb, var(--primary-color) 8%, transparent);
+  color: #1f2937;
+  transition: transform .15s, background .2s, border-color .2s, color .2s;
+}
+
+.nav-utilities .wp-block-button .wp-block-button__link:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--primary-color) 12%, transparent);
+  border-color: color-mix(in srgb, var(--primary-color) 40%, transparent);
+  color: #0f172a;
+}
+
+/* Woo Mini Cart pill */
+.mini-cart .wc-block-mini-cart__button {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  height: 38px;
+  padding: 0 .75rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, .06);
+  border: 1.5px solid rgba(15, 23, 42, .12);
+  transition: transform .15s, background .2s, border-color .2s, color .2s;
+}
+
+.mini-cart .wc-block-mini-cart__button:hover {
+  transform: translateY(-1px);
+  background: rgba(15, 23, 42, .08);
+  border-color: rgba(15, 23, 42, .2);
+}
+
+.mini-cart .wc-block-mini-cart__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.mini-cart .wc-block-mini-cart__badge {
+  position: static;
+  transform: none;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 .3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: .75rem;
+  line-height: 1;
+  background: #6366f1;
+  color: #fff;
+}
+
+/* WP Navigation mobile overlay (full screen) */
+.wp-block-navigation__responsive-container {
+  background: rgba(15, 23, 42, .98) !important;
+  backdrop-filter: blur(20px);
+  inset: 0 !important;
+  /* full screen */
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 4rem 1.5rem;
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation-item__content {
+  font-size: 2.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: .25rem 0;
+}
+
+/* Hamburger → three bars look */
+button.wp-block-navigation__responsive-container-open {
+  width: 38px;
+  height: 34px;
+  position: relative;
+  background: transparent;
+  border: 0;
+  border-radius: .6rem;
+}
+
+button.wp-block-navigation__responsive-container-open svg {
+  opacity: 0;
+}
+
+/* hide default icon */
+button.wp-block-navigation__responsive-container-open::before,
+button.wp-block-navigation__responsive-container-open::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  height: 2px;
+  background: var(--text-primary);
+}
+
+button.wp-block-navigation__responsive-container-open::before {
+  top: 10px;
+  box-shadow: 0 7px 0 var(--text-primary);
+}
+
+button.wp-block-navigation__responsive-container-open::after {
+  top: 24px;
+}
+
+/* Admin bar offset (logged-in) */
+.admin-bar .wpn-nav {
+  top: 32px;
+}
+
+@media (max-width:782px) {
+  .admin-bar .wpn-nav {
+    top: 46px;
+  }
+}
+
+/* Content top padding so fixed header doesn't overlap */
+:root {
+  --header-h: 64px;
+}
+
+@media (min-width:768px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
+body:not(.edit-site) .wp-site-blocks {
+  padding-top: var(--header-h);
+}
+
+/* Keep Account button visible on mobile */
+@media (max-width:900px) {
+  .nav-cta {
+    display: inline-flex !important;
+  }
+}
+
+/* Tight container on very small screens */
+@media (max-width:480px) {
+  .wpn-nav .nav-container {
+    padding: 0 1rem;
+  }
+}
+
+/* Unhide Woo Mini Cart in header utilities */
+.nav-utilities {
+  display: flex !important;
+  align-items: center;
+  gap: .5rem;
+}
+
+.nav-utilities .mini-cart {
+  display: inline-flex !important;
+}
+
+.nav-utilities .wc-block-mini-cart__button {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Keep it visible on smaller screens too */
+@media (max-width: 900px) {
+  .nav-utilities .mini-cart {
+    display: inline-flex !important;
+  }
+}
+
+/* Optional: if any theme CSS hides utilities on small screens, force-show */
+@media (max-width: 900px) {
+  .nav-utilities {
+    display: flex !important;
+  }
+}
+
+/* === Content container (center the main column) === */
+.wpnfinite-main,
+.entry-content,
+.wp-block-post-content,
+.wp-block-query {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
+}
+
+/* === Page/Post title (in content) === */
+.wp-block-post-title,
+.wpn-content-title,
+main .wp-block-heading:is(h1):first-child {
+  margin: clamp(16px, 2.5vw, 28px) 0 14px;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--wp--preset--color--foreground, #0f172a);
+}
+
+/* Decorative rule & subtle distinction from hero */
+.wpn-section-intro,
+.wpn-hero+.wp-block-group .wp-block-post-title,
+.wpn-hero+.wpnfinite-main .wp-block-post-title,
+.wpn-hero+.wpnfinite-main h1:first-child {
+  position: relative;
+  padding-top: .75rem;
+  margin-top: 1.25rem;
+}
+
+.wpn-section-intro::before,
+.wpn-hero+.wp-block-group .wp-block-post-title::before,
+.wpn-hero+.wpnfinite-main .wp-block-post-title::before,
+.wpn-hero+.wpnfinite-main h1:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: .85;
+}
+
+/* Optional subtitle/helper text beneath page title */
+.wpn-title-sub {
+  margin: .25rem 0 1.25rem;
+  color: color-mix(in srgb, var(--wp--preset--color--foreground, #0f172a) 70%, transparent);
+  font-size: clamp(.95rem, .85rem + .3vw, 1.05rem);
+  max-width: 65ch;
+}
+
+/* Spacing between hero and content section */
+.wpn-hero+.wpnfinite-main,
+.wpn-hero+.wp-block-group {
+  padding-top: clamp(16px, 2.5vw, 28px);
+}
+
+/* (Optional) If you want to HIDE the duplicate H1 after the hero, uncomment:
+.wpn-hero + .wp-block-group .wp-block-post-title,
+.wpn-hero + .wpnfinite-main .wp-block-post-title { display:none; }
+*/
+/* Center the inner content area on all templates using .wpn-container */
+.wpn-container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
+}
+
+/* Page/Post title look (keeps distinction from hero) */
+.wpn-container .wp-block-post-title {
+  margin: clamp(16px, 2.5vw, 28px) 0 14px;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--wp--preset--color--foreground, #0f172a);
+}
+
+/* Decorative rule for the first H1 after the hero */
+.wpn-hero+.wpnfinite-main .wpn-container .wp-block-post-title {
+  position: relative;
+  padding-top: .75rem;
+  margin-top: 1.25rem;
+}
+
+.wpn-hero+.wpnfinite-main .wpn-container .wp-block-post-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: .85;
+}
+
+/* Unified site gutter so header + content align */
+:root {
+  --site-gutter-x: 2rem;
+}
+
+/* same as header on desktop */
+@media (max-width: 480px) {
+  :root {
+    --site-gutter-x: 1rem;
+  }
+
+  /* same as header on mobile */
+}
+
+/* Use the same gutter everywhere that needs left/right padding */
+.wpn-nav .nav-container {
+  padding-left: var(--site-gutter-x);
+  padding-right: var(--site-gutter-x);
+}
+
+.wpn-container,
+/* inner wrapper around title + content */
+.wpn-hero__inner {
+  /* optional: align hero text with header too */
+  padding-left: var(--site-gutter-x);
+  padding-right: var(--site-gutter-x);
+}
+
+/* === Global site gutter & widths (match checkout/header) === */
+:root {
+  /* Header had 40px side padding in your pattern → make it the standard gutter */
+  --site-gutter-x: 40px;
+  --content-wide: 1200px;
+  /* wide container size (matches checkout feel) */
+  --content-narrow: 760px;
+  /* optional: for narrower, constrained content */
+}
+
+@media (max-width: 480px) {
+  :root {
+    --site-gutter-x: 16px;
+  }
+}
+
+/* Make all alignwide areas behave like checkout */
+.alignwide,
+.wp-block-group.alignwide,
+.wp-block-query.alignwide,
+.wp-site-blocks>.alignwide {
+  box-sizing: border-box;
+  width: min(var(--content-wide), 100%);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-gutter-x);
+  padding-right: var(--site-gutter-x);
+}
+
+/* Header uses the same gutter so edges line up */
+.wpn-nav .nav-container {
+  padding-left: var(--site-gutter-x);
+  padding-right: var(--site-gutter-x);
+}
+
+/* Main content wrapper also uses the same gutter (if you use a custom class) */
+.wpnfinite-main {
+  box-sizing: border-box;
+  width: min(var(--content-wide), 100%);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-gutter-x);
+  padding-right: var(--site-gutter-x);
+}
+
+/* Titles inside wide areas align with the same gutter */
+.wp-block-post-title {
+  margin: clamp(16px, 2.5vw, 28px) 0 14px;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--wp--preset--color--foreground, #0f172a);
+}
+
+/* If an H1 follows your hero, add a subtle divider to distinguish it */
+.wpn-hero+.alignwide .wp-block-post-title,
+.wpn-hero+.wpnfinite-main .wp-block-post-title {
+  position: relative;
+  padding-top: .75rem;
+  margin-top: 1.25rem;
+}
+
+.wpn-hero+.alignwide .wp-block-post-title::before,
+.wpn-hero+.wpnfinite-main .wp-block-post-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: .85;
+}
+
+/* Homepage bits that piggyback your theme */
+:root {
+  --hp-pad-y: clamp(20px, 4vw, 80px);
+  --hp-card-bg: color-mix(in srgb, var(--wp--preset--color--surface, #161a22) 4%, #fff);
+  --hp-card-br: 16px;
+  --brand: var(--wp--preset--color--primary, #6366f1);
+  --accent: var(--wp--preset--color--accent, #d7393e);
+}
+
+/* Sections */
+.wpn-section .alignwide,
+.wpn-hero .alignwide {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+.has-dark-bg {
+  background: var(--wp--preset--color--contrast, #14171c);
+  color: var(--wp--preset--color--white, #fff);
+}
+
+.has-light-bg {
+  background: var(--wp--preset--color--base, #fff);
+  color: var(--wp--preset--color--contrast, #0f172a);
+}
+
+/* Kicker */
+.wpn-kicker {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: .9;
+  color: var(--accent);
+  margin: 0 0 .5rem;
+}
+
+.wpn-kicker.is-centered {
+  text-align: center;
+}
+
+/* Cards */
+.wpn-card {
+  background: var(--hp-card-bg);
+  border: 1px solid rgba(0, 0, 0, .07);
+  border-radius: var(--hp-card-br);
+  padding: 1rem;
+}
+
+.wpn-card.is-center {
+  text-align: center;
+}
+
+/* Icons & stars */
+.wpn-icon {
+  font-size: 40px;
+  line-height: 1;
+  margin: .25rem 0 .5rem;
+}
+
+.wpn-stars {
+  letter-spacing: .15em;
+  font-size: 18px;
+  color: var(--brand);
+  margin: 0 0 .75rem;
+}
+
+/* Buttons inherit your global button styles; small nudges */
+.wpn-section .wp-block-button.is-style-fill .wp-block-button__link {
+  font-weight: 700;
+  border-radius: 999px;
+  padding: .85rem 1.4rem;
+}
+
+.wpn-section .wp-block-button.is-style-outline .wp-block-button__link {
+  border-radius: 999px;
+  font-weight: 700;
+}
