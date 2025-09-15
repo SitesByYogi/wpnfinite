@@ -1,0 +1,22 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
+
+# Node deps
+node_modules/
+npm-debug.log*
+
+# Build caches / output (adjust if your Vite outDir differs)
+.vite/
+coverage/
+dist/
+*.tmp
+# Optional: if you don’t want sourcemaps in Git
+# *.map
+
+# Misc
+*.zip
