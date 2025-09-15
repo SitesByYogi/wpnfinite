@@ -1,0 +1,18 @@
+# Exclude dev files from release ZIPs (Download ZIP / git archive)
+ /.gitignore         export-ignore
+ /.gitattributes     export-ignore
+ /.vscode            export-ignore
+ /.idea              export-ignore
+ /node_modules       export-ignore
+ /.vite              export-ignore
+ /coverage           export-ignore
+ /dist               export-ignore
+ /scripts            export-ignore
+ /src                export-ignore
+ /package.json       export-ignore
+ /package-lock.json  export-ignore
+ /vite.config.js     export-ignore
+ /.github            export-ignore   # remove this line if you DO want workflows in the ZIP
+
+# Normalize line endings (safer on Windows)
+* text=auto eol=lf
