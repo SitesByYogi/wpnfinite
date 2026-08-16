@@ -1,13 +1,17 @@
 /*
 Theme Name: WPNfinite
 Theme URI: https://wpnfinite.com/
-Author: Brandon C. (Yogi)
-Author URI: https://sitesbyyogi.com/
-Description: Performance-first, block-based starter theme with Vite bundling. Built to be cloned and customized.
-Version: 0.1.0
+Author: Brandon Copeland
+Author URI: https://yogisvps.com/
+Description: Content-first WordPress media framework with automatic homepage layouts and native compatibility for ShopBlocks, Nfinite Dashboard, WooCommerce, the Block Editor, and Elementor when needed.
+Version: 1.1.3
 Requires at least: 6.5
-Tested up to: 6.6
+Tested up to: 6.8
 Requires PHP: 8.0
 Text Domain: wpnfinite
-Tags: block-styles, full-site-editing, accessibility-ready, custom-colors, custom-spacing
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, custom-logo, custom-menu, featured-images, full-width-template, editor-style, block-styles, accessibility-ready, e-commerce, blog
 */
+
+/* Most styling lives in /assets/css */

@@ -1,31 +1,19 @@
 <?php
-/**
- * Helpers: Vite asset loader with dev-server support.
- */
-
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-
-/**
- * Return Vite dev server URL if running, else false.
- */
-function wpnfinite_vite_dev_url() {
-    $host = apply_filters( 'wpnfinite_vite_host', 'http://localhost:5173' );
-    // Quick check: use a transient flag file created by `npm run dev` script.
-    $flag = get_stylesheet_directory() . '/.vite-dev';
-    if ( file_exists( $flag ) ) {
-        return rtrim( $host, '/' );
-    }
-    return false;
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
 
-/**
- * Locate built asset path via Vite manifest.
- */
-function wpnfinite_asset( $entry ) {
-    $manifest_path = get_stylesheet_directory() . '/assets/manifest.json';
-    if ( ! file_exists( $manifest_path ) ) {
-        return '';
+function wpnfinite_is_elementor_canvas() {
+    if ( ! is_singular() || ! class_exists( '\Elementor\Plugin' ) ) {
+        return false;
     }
-    $manifest = json_decode( file_get_contents( $manifest_path ), true );
-    return isset( $manifest[ $entry ]['file'] ) ? trailingslashit( get_stylesheet_directory_uri() ) . 'assets/' . $manifest[ $entry ]['file'] : '';
+    $document = \Elementor\Plugin::$instance->documents->get( get_the_ID() );
+    if ( ! $document || ! method_exists( $document, 'get_settings' ) ) {
+        return false;
+    }
+    return 'elementor_canvas' === $document->get_settings( 'template' );
+}
+
+function wpnfinite_read_more_link() {
+    return sprintf( '<a class="wpnfinite-read-more" href="%1$s">%2$s</a>', esc_url( get_permalink() ), esc_html__( 'Read more', 'wpnfinite' ) );
 }

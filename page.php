@@ -1,0 +1,2 @@
+<?php get_header(); ?>
+<section class="wpnfinite-container wpnfinite-content-area"><?php while ( have_posts() ) : the_post(); ?><article id="post-<?php the_ID(); ?>" <?php post_class( 'wpnfinite-page' ); ?>><header class="wpnfinite-entry-header"><?php the_title( '<h1 class="wpnfinite-entry-title">', '</h1>' ); ?></header><div class="wpnfinite-entry-content"><?php the_content(); ?></div></article><?php endwhile; ?></section><?php get_footer(); ?>
