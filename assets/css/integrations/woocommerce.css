@@ -1,1 +1,1348 @@
-.woocommerce .button,.woocommerce button.button,.woocommerce input.button{border-radius:999px;background:var(--wp--preset--color--primary);color:#04111f;font-weight:800}.woocommerce ul.products li.product,.woocommerce div.product{font-family:inherit}.woocommerce span.onsale{background:var(--wp--preset--color--accent);color:#04111f}
+/* ==========================================================
+   WPNfinite 1.2.0 — Music Commerce Experience
+   ========================================================== */
+
+.wpnfinite-woocommerce-main{
+	--pod-bg:#06101d;
+	--pod-panel:#0b1728;
+	--pod-panel-2:#091321;
+	--pod-panel-hover:#101e32;
+	--pod-text:#f8fafc;
+	--pod-muted:#8999ad;
+	--pod-primary:#35bdf5;
+	--pod-primary-2:#68d4ff;
+	--pod-border:rgba(148,163,184,.12);
+	--pod-shadow:0 20px 60px rgba(0,0,0,.22);
+
+	min-height:60vh;
+	padding:62px 0 110px;
+
+	background:
+		radial-gradient(circle at 18% 0,rgba(53,189,245,.055),transparent 30%),
+		radial-gradient(circle at 82% 18%,rgba(104,212,255,.025),transparent 24%),
+		var(--pod-bg);
+
+	color:var(--pod-text);
+
+	font-family:
+		Inter,
+		ui-sans-serif,
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		sans-serif;
+}
+
+.wpnfinite-woocommerce-main *,
+.wpnfinite-woocommerce-main *::before,
+.wpnfinite-woocommerce-main *::after{box-sizing:border-box}
+
+.wpnfinite-woocommerce-main .wpnfinite-woocommerce-shell{
+	width:min(1360px,calc(100% - 40px));
+	margin-inline:auto;
+}
+
+.wpnfinite-woocommerce-main .woocommerce,
+.wpnfinite-woocommerce-main .woocommerce-page{
+	color:var(--pod-text);
+	font-family:inherit;
+}
+
+.wpnfinite-woocommerce-main h1,
+.wpnfinite-woocommerce-main h2,
+.wpnfinite-woocommerce-main h3,
+.wpnfinite-woocommerce-main h4,
+.wpnfinite-woocommerce-main h5,
+.wpnfinite-woocommerce-main h6,
+.wpnfinite-woocommerce-main p,
+.wpnfinite-woocommerce-main a,
+.wpnfinite-woocommerce-main button,
+.wpnfinite-woocommerce-main input,
+.wpnfinite-woocommerce-main select,
+.wpnfinite-woocommerce-main textarea,
+.wpnfinite-woocommerce-main label,
+.wpnfinite-woocommerce-main table,
+.wpnfinite-woocommerce-main .price,
+.wpnfinite-woocommerce-main .woocommerce-result-count{
+	font-family:inherit;
+}
+
+/* ==========================================================
+   SHOP HEADER
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce .woocommerce-breadcrumb{
+	margin:0 0 12px;
+	color:var(--pod-muted);
+	font-size:.77rem;
+	font-weight:650;
+}
+
+.wpnfinite-woocommerce-main .woocommerce .woocommerce-breadcrumb a{
+	color:var(--pod-primary);
+	text-decoration:none;
+}
+
+.wpnfinite-woocommerce-main .woocommerce-products-header{
+	margin-bottom:15px;
+}
+
+.wpnfinite-woocommerce-main .woocommerce-products-header__title.page-title,
+.wpnfinite-woocommerce-main .woocommerce h1.page-title{
+	margin:0;
+	color:#fff;
+	font-size:clamp(2.8rem,4.7vw,4.9rem);
+	font-weight:850;
+	line-height:.94;
+	letter-spacing:-.06em;
+}
+
+.wpnfinite-woocommerce-main .woocommerce .woocommerce-result-count{
+	margin:15px 0 30px;
+	color:rgba(203,213,225,.68);
+	font-size:.82rem;
+	font-weight:650;
+}
+
+.wpnfinite-woocommerce-main .woocommerce .woocommerce-ordering{
+	margin:0 0 30px;
+}
+
+.wpnfinite-woocommerce-main .woocommerce .woocommerce-ordering select,
+.wpnfinite-woocommerce-main .woocommerce select{
+	min-width:200px;
+	min-height:44px;
+	padding:9px 42px 9px 14px;
+	border:1px solid var(--pod-border);
+	border-radius:12px;
+	background:#0b1728;
+	color:#e7eef8;
+	font-size:.82rem;
+	font-weight:650;
+	box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+/* ==========================================================
+   PRODUCT GRID
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce ul.products{
+	display:grid;
+	grid-template-columns:repeat(4,minmax(0,1fr));
+	gap:34px 22px;
+	clear:both;
+	margin:0 0 52px;
+	padding:0;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products::before,
+.wpnfinite-woocommerce-main .woocommerce ul.products::after{display:none}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product,
+.wpnfinite-woocommerce-main.woocommerce-page ul.products li.product{
+	position:relative;
+	float:none!important;
+	width:auto!important;
+	margin:0!important;
+	padding:0;
+	overflow:visible;
+	background:transparent;
+	border:0;
+	box-shadow:none;
+	color:var(--pod-text);
+	font-family:inherit;
+}
+
+/* Artwork stage */
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product > a.woocommerce-LoopProduct-link{
+	display:block;
+	position:relative;
+	text-decoration:none;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product a img{
+	display:block;
+	width:100%;
+	aspect-ratio:16/10;
+	margin:0;
+	border:1px solid rgba(148,163,184,.11);
+	border-radius:20px;
+	background:#101d30;
+	object-fit:cover;
+	box-shadow:0 18px 46px rgba(0,0,0,.2);
+	filter:brightness(.94);
+	transition:
+		transform .35s cubic-bezier(.22,.61,.36,1),
+		filter .3s ease,
+		border-color .3s ease,
+		box-shadow .3s ease;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product:hover a img{
+	transform:translateY(-4px) scale(1.018);
+	filter:brightness(1);
+	border-color:rgba(53,189,245,.24);
+	box-shadow:0 28px 68px rgba(0,0,0,.31);
+}
+
+/* Type chip inferred from music class */
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product.wpnfinite-music-product::before{
+	content:"MUSIC";
+	position:absolute;
+	left:12px;
+	top:12px;
+	z-index:4;
+	padding:6px 8px;
+	border:1px solid rgba(255,255,255,.12);
+	border-radius:999px;
+	background:rgba(4,12,24,.72);
+	color:rgba(255,255,255,.86);
+	font-size:.6rem;
+	font-weight:900;
+	letter-spacing:.12em;
+	backdrop-filter:blur(10px);
+}
+
+/* Text area floats directly on the canvas rather than inside a box */
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product .woocommerce-loop-category__title,
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product .woocommerce-loop-product__title,
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product h2{
+	margin:16px 0 0;
+	padding:0;
+	color:#fff;
+	font-size:1rem;
+	font-weight:820;
+	line-height:1.35;
+	letter-spacing:-.02em;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product .price{
+	display:block;
+	margin:7px 0 0;
+	padding:0;
+	color:#fff;
+	font-size:.9rem;
+	font-weight:820;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product .price del{
+	color:var(--pod-muted);
+	opacity:.68;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product .price ins{
+	color:#fff;
+	text-decoration:none;
+}
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product .star-rating{
+	margin:8px 0 0;
+	color:var(--pod-primary);
+}
+
+/* Sale badge */
+.wpnfinite-woocommerce-main .woocommerce span.onsale{
+	top:12px;
+	left:12px;
+	right:auto;
+	z-index:5;
+	min-width:0;
+	min-height:0;
+	margin:0;
+	padding:7px 9px;
+	border-radius:999px;
+	background:#fff;
+	color:#04111f;
+	font-size:.66rem;
+	font-weight:900;
+	line-height:1;
+	box-shadow:0 8px 24px rgba(0,0,0,.2);
+}
+
+/* ==========================================================
+   ARCHIVE AUDIO PREVIEW
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .wpnfinite-product-preview{
+	position:absolute;
+	top:auto;
+	right:15px;
+	bottom:15px;
+	z-index:6;
+	display:grid;
+	width:54px;
+	height:54px;
+	min-height:54px;
+	place-items:center;
+	padding:0;
+	border:1px solid rgba(255,255,255,.17);
+	border-radius:50%;
+	background:rgba(4,12,24,.72);
+	color:#fff;
+	cursor:pointer;
+	backdrop-filter:blur(15px);
+	-webkit-backdrop-filter:blur(15px);
+	box-shadow:0 14px 34px rgba(0,0,0,.3);
+	transition:
+		transform .2s ease,
+		background .2s ease,
+		color .2s ease,
+		border-color .2s ease,
+		box-shadow .2s ease;
+}
+
+.wpnfinite-woocommerce-main .wpnfinite-product-preview:hover,
+.wpnfinite-woocommerce-main .wpnfinite-product-preview.is-playing{
+	transform:translateY(-2px) scale(1.035);
+	border-color:var(--pod-primary);
+	background:var(--pod-primary);
+	color:#03101c;
+	box-shadow:0 16px 38px rgba(53,189,245,.24);
+}
+
+.wpnfinite-woocommerce-main .wpnfinite-product-preview__icon{
+	display:grid;
+	width:auto;
+	height:auto;
+	place-items:center;
+	font-size:12px;
+}
+
+.wpnfinite-woocommerce-main .wpnfinite-product-preview__label{display:none}
+
+/* PDP version becomes a full CTA-style preview control */
+.wpnfinite-woocommerce-main .wpnfinite-single-preview{
+	position:static;
+	display:inline-flex;
+	width:auto;
+	height:auto;
+	min-height:48px;
+	gap:10px;
+	padding:0 18px;
+	border-radius:13px;
+	background:rgba(53,189,245,.08);
+	color:var(--pod-primary);
+	box-shadow:none;
+}
+
+.wpnfinite-woocommerce-main .wpnfinite-single-preview .wpnfinite-product-preview__label{
+	display:inline;
+}
+
+.wpnfinite-woocommerce-main .wpnfinite-single-preview:hover,
+.wpnfinite-woocommerce-main .wpnfinite-single-preview.is-playing{
+	transform:translateY(-1px);
+	background:var(--pod-primary);
+	color:#03101c;
+}
+
+/* ==========================================================
+   COMMERCE CTA
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce .button,
+.wpnfinite-woocommerce-main .woocommerce button.button,
+.wpnfinite-woocommerce-main .woocommerce input.button,
+.wpnfinite-woocommerce-main .woocommerce a.button{
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	gap:8px;
+	min-height:46px;
+	margin:16px 0 0;
+	padding:0 20px;
+	border:0;
+	border-radius:12px;
+	background:linear-gradient(135deg,var(--pod-primary),#2198d0);
+	color:#03101c;
+	font-size:.8rem;
+	font-weight:900;
+	letter-spacing:.01em;
+	box-shadow:0 12px 30px rgba(53,189,245,.15);
+	transition:
+		transform .2s ease,
+		filter .2s ease,
+		box-shadow .2s ease;
+}
+
+.wpnfinite-woocommerce-main .woocommerce .button:hover,
+.wpnfinite-woocommerce-main .woocommerce button.button:hover,
+.wpnfinite-woocommerce-main .woocommerce input.button:hover,
+.wpnfinite-woocommerce-main .woocommerce a.button:hover{
+	transform:translateY(-2px);
+	filter:brightness(1.08);
+	color:#03101c;
+	box-shadow:0 16px 40px rgba(53,189,245,.27);
+}
+
+.wpnfinite-woocommerce-main .woocommerce a.added_to_cart{
+	display:inline-block;
+	margin:10px 0 0;
+	color:var(--pod-primary);
+	font-size:.78rem;
+	font-weight:850;
+}
+
+/* ==========================================================
+   NOTICES / PAGINATION
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce-message,
+.wpnfinite-woocommerce-main .woocommerce-info,
+.wpnfinite-woocommerce-main .woocommerce-error{
+	margin:0 0 28px!important;
+	padding:16px 18px 16px 46px!important;
+	border:1px solid var(--pod-border);
+	border-top:0!important;
+	border-radius:14px;
+	background:rgba(15,27,47,.88);
+	color:var(--pod-text);
+}
+
+.wpnfinite-woocommerce-main .woocommerce-message::before,
+.wpnfinite-woocommerce-main .woocommerce-info::before{color:var(--pod-primary)}
+.wpnfinite-woocommerce-main .woocommerce-error::before{color:#fb7185}
+
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination{margin-top:44px}
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination ul{
+	display:flex;
+	justify-content:center;
+	gap:7px;
+	border:0;
+}
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination ul li{border:0}
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination ul li a,
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination ul li span{
+	display:grid;
+	min-width:40px;
+	height:40px;
+	place-items:center;
+	padding:0 10px;
+	border:1px solid var(--pod-border);
+	border-radius:10px;
+	background:#0c182a;
+	color:var(--pod-text);
+}
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination ul li span.current,
+.wpnfinite-woocommerce-main .woocommerce nav.woocommerce-pagination ul li a:hover{
+	border-color:var(--pod-primary);
+	background:rgba(53,189,245,.1);
+	color:var(--pod-primary);
+}
+
+/* ==========================================================
+   SINGLE PRODUCT / PDP
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce div.product{
+	display:grid;
+	grid-template-columns:minmax(0,1.08fr) minmax(360px,.72fr);
+	gap:64px;
+	align-items:start;
+	font-family:inherit;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product div.images{
+	float:none;
+	width:auto;
+	margin:0;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product div.images .woocommerce-product-gallery__wrapper{
+	margin:0;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product div.images img{
+	width:100%;
+	aspect-ratio:4/3;
+	object-fit:cover;
+	border:1px solid var(--pod-border);
+	border-radius:24px;
+	background:#0d192a;
+	box-shadow:0 28px 80px rgba(0,0,0,.28);
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product div.summary{
+	position:sticky;
+	top:118px;
+	float:none;
+	width:auto;
+	margin:0;
+	padding:30px;
+	border:1px solid var(--pod-border);
+	border-radius:22px;
+	background:
+		linear-gradient(180deg,rgba(15,28,48,.9),rgba(8,17,31,.96));
+	box-shadow:
+		0 24px 70px rgba(0,0,0,.22),
+		inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .product_title{
+	margin:0 0 10px;
+	color:#fff;
+	font-size:clamp(2.4rem,4vw,4.5rem);
+	font-weight:850;
+	line-height:.98;
+	letter-spacing:-.055em;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product p.price,
+.wpnfinite-woocommerce-main .woocommerce div.product span.price{
+	margin:14px 0 18px;
+	color:#fff;
+	font-size:1.35rem;
+	font-weight:900;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-product-details__short-description,
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-product-details__short-description p{
+	color:#cbd5e1;
+	line-height:1.72;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product form.cart{
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	gap:10px;
+	margin-top:20px;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product form.cart .button{
+	margin:0;
+	min-height:50px;
+	padding-inline:24px;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product form.cart input.qty{
+	min-height:50px;
+	border:1px solid var(--pod-border);
+	border-radius:12px;
+	background:#081524;
+	color:#fff;
+}
+
+.wpnfinite-music-purchase-note{
+	display:grid;
+	gap:6px;
+	margin-top:18px;
+	padding-top:17px;
+	border-top:1px solid var(--pod-border);
+	color:var(--pod-muted);
+	font-size:.78rem;
+	font-weight:650;
+}
+
+.wpnfinite-music-purchase-note span::before{
+	content:"✓";
+	display:inline-block;
+	margin-right:7px;
+	color:var(--pod-primary);
+	font-weight:900;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .product_meta{
+	margin-top:22px;
+	padding-top:17px;
+	border-top:1px solid var(--pod-border);
+	color:var(--pod-muted);
+	font-size:.82rem;
+	line-height:1.7;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .product_meta a{
+	color:var(--pod-primary);
+}
+
+/* Force full-width secondary content below the two-column top section */
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs,
+.wpnfinite-woocommerce-main .woocommerce div.product .related.products,
+.wpnfinite-woocommerce-main .woocommerce div.product .upsells.products{
+	grid-column:1/-1;
+	width:100%;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs{
+	margin-top:34px;
+	padding-top:38px;
+	border-top:1px solid var(--pod-border);
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs{
+	display:flex;
+	flex-wrap:wrap;
+	gap:8px;
+	margin:0 0 24px;
+	padding:0;
+}
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs::before{display:none}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs li{
+	margin:0;
+	padding:0;
+	border:1px solid var(--pod-border);
+	border-radius:999px;
+	background:rgba(15,27,47,.7);
+	color:var(--pod-muted);
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs li::before,
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs li::after{display:none}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs li a{
+	padding:9px 15px;
+	color:inherit;
+	font-size:.78rem;
+	font-weight:820;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs li.active{
+	border-color:rgba(53,189,245,.32);
+	background:rgba(53,189,245,.09);
+	color:var(--pod-primary);
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs .panel{
+	max-width:900px;
+	color:#cbd5e1;
+	line-height:1.75;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs .panel h2{
+	color:#fff;
+	font-size:clamp(1.75rem,3vw,2.7rem);
+	letter-spacing:-.035em;
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .related.products,
+.wpnfinite-woocommerce-main .woocommerce div.product .upsells.products{
+	margin-top:55px;
+	padding-top:42px;
+	border-top:1px solid var(--pod-border);
+}
+
+.wpnfinite-woocommerce-main .woocommerce div.product .related.products > h2,
+.wpnfinite-woocommerce-main .woocommerce div.product .upsells.products > h2{
+	margin:0 0 24px;
+	color:#fff;
+	font-size:clamp(1.9rem,3.2vw,2.8rem);
+	letter-spacing:-.04em;
+}
+
+/* Normal products remain Woo-friendly, but music products get the stronger layout */
+body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product{
+	display:block;
+}
+
+body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product div.images{
+	float:left;
+	width:48%;
+}
+
+body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product div.summary{
+	position:static;
+	float:right;
+	width:48%;
+}
+
+body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs,
+body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product .related.products,
+body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product .upsells.products{
+	clear:both;
+}
+
+/* ==========================================================
+   CART / CHECKOUT
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce table.shop_table{
+	border-color:var(--pod-border);
+	border-radius:14px;
+	background:rgba(12,24,43,.55);
+	color:var(--pod-text);
+}
+
+.wpnfinite-woocommerce-main .woocommerce table.shop_table th,
+.wpnfinite-woocommerce-main .woocommerce table.shop_table td{
+	border-color:var(--pod-border);
+	color:inherit;
+}
+
+.wpnfinite-woocommerce-main .woocommerce form .form-row input.input-text,
+.wpnfinite-woocommerce-main .woocommerce form .form-row textarea{
+	min-height:44px;
+	border:1px solid var(--pod-border);
+	border-radius:10px;
+	background:#0b1728;
+	color:#fff;
+}
+
+.wpnfinite-woocommerce-main .select2-container--default .select2-selection--single{
+	height:44px;
+	border:1px solid var(--pod-border);
+	border-radius:10px;
+	background:#0b1728;
+}
+.wpnfinite-woocommerce-main .select2-container--default .select2-selection--single .select2-selection__rendered{
+	color:#fff;
+	line-height:42px;
+}
+
+/* Archive sidebar safety */
+body.wpnfinite-product-archive #secondary,
+body.wpnfinite-product-archive .widget-area{display:none!important}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media(max-width:1100px){
+	.wpnfinite-woocommerce-main .woocommerce ul.products{
+		grid-template-columns:repeat(3,minmax(0,1fr));
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product{
+		grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);
+		gap:40px;
+	}
+}
+
+@media(max-width:860px){
+	.wpnfinite-woocommerce-main{
+		padding-top:40px;
+	}
+
+	.wpnfinite-woocommerce-main .wpnfinite-woocommerce-shell{
+		width:min(100% - 28px,1360px);
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce ul.products{
+		grid-template-columns:repeat(2,minmax(0,1fr));
+		gap:24px 14px;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce .woocommerce-ordering{
+		float:none;
+		width:100%;
+	}
+	.wpnfinite-woocommerce-main .woocommerce .woocommerce-ordering select{
+		width:100%;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product,
+	body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product{
+		display:grid;
+		grid-template-columns:1fr;
+		gap:28px;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product div.images,
+	body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product div.images,
+	.wpnfinite-woocommerce-main .woocommerce div.product div.summary,
+	body:not(.wpnfinite-music-product-page) .wpnfinite-woocommerce-main .woocommerce div.product div.summary{
+		float:none;
+		width:100%;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product div.summary{
+		position:static;
+		padding:24px;
+	}
+}
+
+@media(max-width:560px){
+	.wpnfinite-woocommerce-main .woocommerce ul.products{
+		grid-template-columns:1fr;
+		gap:28px;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce ul.products li.product a img{
+		aspect-ratio:16/9;
+		border-radius:17px;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce ul.products li.product .woocommerce-loop-product__title{
+		margin-top:13px;
+		font-size:.95rem;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce ul.products li.product .price{
+		font-size:.86rem;
+	}
+
+	.wpnfinite-woocommerce-main .wpnfinite-product-preview{
+		right:13px;
+		bottom:13px;
+		width:48px;
+		height:48px;
+		min-height:48px;
+	}
+
+	.wpnfinite-woocommerce-main .wpnfinite-single-preview{
+		width:auto;
+		height:auto;
+		min-height:46px;
+		padding:0 16px;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product div.images img{
+		aspect-ratio:1;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product .product_title{
+		font-size:clamp(2.25rem,12vw,3.2rem);
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs{
+		gap:6px;
+	}
+
+	.wpnfinite-woocommerce-main .woocommerce div.product .woocommerce-tabs ul.tabs li a{
+		padding:8px 12px;
+		font-size:.72rem;
+	}
+}
+
+
+
+/* ==========================================================
+   1.2.1 — Native Music Product Card
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product.wpnfinite-product-card{
+	display:flex;
+	flex-direction:column;
+	gap:0;
+	min-width:0;
+	overflow:visible;
+}
+
+.wpnfinite-product-card__media{
+	position:relative;
+	aspect-ratio:16/10;
+	overflow:hidden;
+	border:1px solid var(--pod-border);
+	border-radius:22px;
+	background:#0d192a;
+	box-shadow:0 18px 48px rgba(0,0,0,.22);
+	transition:
+		transform .28s ease,
+		border-color .28s ease,
+		box-shadow .28s ease;
+}
+
+.wpnfinite-product-card:hover .wpnfinite-product-card__media{
+	transform:translateY(-5px);
+	border-color:rgba(53,189,245,.28);
+	box-shadow:0 30px 72px rgba(0,0,0,.34);
+}
+
+.wpnfinite-product-card__media-link{
+	position:absolute;
+	inset:0;
+	display:block;
+	overflow:hidden;
+}
+
+.wpnfinite-product-card__image{
+	display:block!important;
+	width:100%!important;
+	height:100%!important;
+	aspect-ratio:auto!important;
+	margin:0!important;
+	border:0!important;
+	border-radius:0!important;
+	object-fit:cover!important;
+	box-shadow:none!important;
+	filter:brightness(.93);
+	transition:
+		transform .45s cubic-bezier(.22,.61,.36,1),
+		filter .3s ease;
+}
+
+.wpnfinite-product-card:hover .wpnfinite-product-card__image{
+	transform:scale(1.035);
+	filter:brightness(1);
+}
+
+.wpnfinite-product-card__type,
+.wpnfinite-product-card__sale{
+	position:absolute;
+	top:14px;
+	z-index:5;
+	display:inline-flex;
+	align-items:center;
+	min-height:27px;
+	padding:0 9px;
+	border:1px solid rgba(255,255,255,.13);
+	border-radius:999px;
+	background:rgba(3,10,20,.7);
+	color:#fff;
+	font-size:.62rem;
+	font-weight:900;
+	letter-spacing:.12em;
+	text-transform:uppercase;
+	backdrop-filter:blur(12px);
+}
+
+.wpnfinite-product-card__type{left:14px}
+.wpnfinite-product-card__sale{left:auto;right:14px;background:#fff;color:#03101c}
+
+.wpnfinite-product-card__preview{
+	top:auto!important;
+	right:15px!important;
+	bottom:15px!important;
+}
+
+.wpnfinite-product-card__content{
+	padding:17px 2px 0;
+}
+
+.wpnfinite-product-card__meta{
+	margin-bottom:5px;
+	color:var(--pod-primary);
+	font-size:.62rem;
+	font-weight:900;
+	letter-spacing:.14em;
+	text-transform:uppercase;
+}
+
+.wpnfinite-product-card__title{
+	margin:0!important;
+	padding:0!important;
+	font-size:1.06rem!important;
+	font-weight:850!important;
+	line-height:1.3!important;
+	letter-spacing:-.025em!important;
+}
+
+.wpnfinite-product-card__title a{
+	color:#fff!important;
+	text-decoration:none!important;
+}
+
+.wpnfinite-product-card__artist{
+	margin-top:4px;
+	color:var(--pod-muted);
+	font-size:.82rem;
+	font-weight:650;
+}
+
+.wpnfinite-product-card__footer{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:16px;
+	margin-top:16px;
+}
+
+.wpnfinite-product-card__price{
+	color:#fff;
+	font-size:.95rem;
+	font-weight:900;
+	white-space:nowrap;
+}
+
+.wpnfinite-product-card__price .price,
+.wpnfinite-product-card__price span,
+.wpnfinite-product-card__price bdi{
+	color:inherit!important;
+	font:inherit!important;
+}
+
+.wpnfinite-product-card__cta{
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	gap:8px;
+	min-height:44px;
+	padding:0 17px;
+	border:0;
+	border-radius:12px;
+	background:linear-gradient(135deg,var(--pod-primary),#209bd4);
+	color:#02101d!important;
+	font-size:.76rem;
+	font-weight:900;
+	text-decoration:none!important;
+	box-shadow:0 12px 30px rgba(53,189,245,.16);
+	transition:
+		transform .2s ease,
+		filter .2s ease,
+		box-shadow .2s ease;
+}
+
+.wpnfinite-product-card__cta:hover{
+	transform:translateY(-2px);
+	filter:brightness(1.08);
+	box-shadow:0 16px 38px rgba(53,189,245,.27);
+}
+
+.wpnfinite-product-card__cta.added::after{
+	margin-left:2px;
+}
+
+/* Hide legacy pseudo chip from 1.2.0 now that native markup owns it. */
+.wpnfinite-woocommerce-main .woocommerce ul.products li.product.wpnfinite-product-card::before{
+	display:none!important;
+}
+
+/* ==========================================================
+   1.2.1 — Native Music PDP
+   ========================================================== */
+
+.wpnfinite-woocommerce-main .woocommerce div.product.wpnfinite-music-pdp{
+	display:block;
+}
+
+.wpnfinite-music-pdp__top{
+	display:grid;
+	grid-template-columns:minmax(0,1.08fr) minmax(360px,.72fr);
+	gap:64px;
+	align-items:start;
+}
+
+.wpnfinite-music-pdp__media{
+	min-width:0;
+}
+
+.wpnfinite-music-pdp__artwork{
+	position:relative;
+	aspect-ratio:4/3;
+	overflow:hidden;
+	border:1px solid var(--pod-border);
+	border-radius:26px;
+	background:#0d192a;
+	box-shadow:0 30px 85px rgba(0,0,0,.3);
+}
+
+.wpnfinite-music-pdp__image{
+	display:block;
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+
+.wpnfinite-music-pdp__preview-fab{
+	top:auto!important;
+	right:22px!important;
+	bottom:22px!important;
+	width:64px!important;
+	height:64px!important;
+	min-height:64px!important;
+}
+
+.wpnfinite-music-pdp__purchase{
+	position:sticky;
+	top:118px;
+	padding:32px;
+	border:1px solid var(--pod-border);
+	border-radius:24px;
+	background:
+		linear-gradient(180deg,rgba(15,28,48,.94),rgba(8,17,31,.98));
+	box-shadow:
+		0 24px 70px rgba(0,0,0,.23),
+		inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.wpnfinite-music-pdp__eyebrow{
+	display:inline-flex;
+	align-items:center;
+	min-height:27px;
+	padding:0 9px;
+	border:1px solid rgba(53,189,245,.22);
+	border-radius:999px;
+	background:rgba(53,189,245,.08);
+	color:var(--pod-primary);
+	font-size:.63rem;
+	font-weight:900;
+	letter-spacing:.14em;
+	text-transform:uppercase;
+}
+
+.wpnfinite-music-pdp__title{
+	margin:15px 0 0!important;
+	color:#fff!important;
+	font-size:clamp(2.6rem,4.6vw,4.8rem)!important;
+	font-weight:880!important;
+	line-height:.96!important;
+	letter-spacing:-.06em!important;
+}
+
+.wpnfinite-music-pdp__artist{
+	margin:10px 0 0;
+	color:var(--pod-muted);
+	font-size:1rem;
+}
+
+.wpnfinite-music-pdp__artist strong{color:#dce7f4}
+
+.wpnfinite-music-pdp__price{
+	margin:18px 0 20px;
+	color:#fff;
+	font-size:1.45rem;
+	font-weight:900;
+}
+
+.wpnfinite-music-pdp__price .price,
+.wpnfinite-music-pdp__price span,
+.wpnfinite-music-pdp__price bdi{
+	color:inherit!important;
+	font:inherit!important;
+}
+
+.wpnfinite-music-pdp__short{
+	margin-bottom:20px;
+	color:#cbd5e1;
+	line-height:1.72;
+}
+
+.wpnfinite-music-pdp__cart{
+	margin-top:18px;
+}
+
+.wpnfinite-music-pdp__cart form.cart{
+	display:flex!important;
+	align-items:center!important;
+	flex-wrap:wrap!important;
+	gap:10px!important;
+	margin:0!important;
+}
+
+.wpnfinite-music-pdp__cart .button{
+	min-height:52px!important;
+	margin:0!important;
+	padding:0 25px!important;
+}
+
+.wpnfinite-music-pdp__cart input.qty{
+	min-height:52px!important;
+}
+
+.wpnfinite-music-pdp__meta{
+	margin-top:18px;
+	padding-top:17px;
+	border-top:1px solid var(--pod-border);
+}
+
+.wpnfinite-music-pdp__meta .product_meta{
+	margin:0!important;
+	padding:0!important;
+	border:0!important;
+}
+
+.wpnfinite-music-pdp__details{
+	margin-top:64px;
+}
+
+.wpnfinite-music-pdp__details .woocommerce-tabs,
+.wpnfinite-music-pdp__details .related.products,
+.wpnfinite-music-pdp__details .upsells.products{
+	width:100%!important;
+	float:none!important;
+	clear:both!important;
+}
+
+@media(max-width:860px){
+	.wpnfinite-music-pdp__top{
+		grid-template-columns:1fr;
+		gap:28px;
+	}
+
+	.wpnfinite-music-pdp__purchase{
+		position:static;
+	}
+
+	.wpnfinite-product-card__footer{
+		align-items:flex-start;
+		flex-direction:column;
+		gap:11px;
+	}
+
+	.wpnfinite-product-card__cta{
+		width:100%;
+	}
+}
+
+@media(max-width:560px){
+	.wpnfinite-woocommerce-main .woocommerce ul.products{
+		grid-template-columns:1fr!important;
+	}
+
+	.wpnfinite-product-card__media{
+		aspect-ratio:16/9;
+		border-radius:18px;
+	}
+
+	.wpnfinite-product-card__content{
+		padding-top:14px;
+	}
+
+	.wpnfinite-product-card__footer{
+		flex-direction:row;
+		align-items:center;
+	}
+
+	.wpnfinite-product-card__cta{
+		width:auto;
+	}
+
+	.wpnfinite-music-pdp__artwork{
+		aspect-ratio:1;
+		border-radius:20px;
+	}
+
+	.wpnfinite-music-pdp__purchase{
+		padding:22px;
+		border-radius:20px;
+	}
+
+	.wpnfinite-music-pdp__title{
+		font-size:clamp(2.3rem,12vw,3.25rem)!important;
+	}
+}
+
+/* ==========================================================
+   CART + CHECKOUT BLOCKS — PairOfDice commerce polish
+   ========================================================== */
+
+/* Keep block cart/checkout surfaces visually native to WPNfinite. */
+.wpnfinite-woocommerce-main .wp-block-woocommerce-cart,
+.wpnfinite-woocommerce-main .wp-block-woocommerce-checkout,
+.wpnfinite-woocommerce-main .wc-block-cart,
+.wpnfinite-woocommerce-main .wc-block-checkout{
+	--pod-commerce-green:#50e65b;
+	--pod-commerce-cyan:#22b9d8;
+	--pod-commerce-field:#f8fafc;
+	--pod-commerce-ink:#101827;
+	--pod-commerce-placeholder:#8b98a8;
+	color:#f8fafc;
+}
+
+/* Checkout/cart fields are intentionally light. Force readable dark values. */
+.wpnfinite-woocommerce-main .wc-block-components-text-input input,
+.wpnfinite-woocommerce-main .wc-block-components-text-input input[type="text"],
+.wpnfinite-woocommerce-main .wc-block-components-text-input input[type="email"],
+.wpnfinite-woocommerce-main .wc-block-components-text-input input[type="tel"],
+.wpnfinite-woocommerce-main .wc-block-components-text-input input[type="number"],
+.wpnfinite-woocommerce-main .wc-block-components-text-input input[type="password"],
+.wpnfinite-woocommerce-main .wc-block-components-address-form input,
+.wpnfinite-woocommerce-main .wc-block-components-combobox .wc-block-components-combobox-control input,
+.wpnfinite-woocommerce-main .wc-block-components-form .wc-block-components-text-input input,
+.wpnfinite-woocommerce-main .woocommerce-checkout input.input-text,
+.wpnfinite-woocommerce-main .woocommerce-checkout textarea,
+.wpnfinite-woocommerce-main .woocommerce-checkout select{
+	background:var(--pod-commerce-field,#f8fafc)!important;
+	color:var(--pod-commerce-ink,#101827)!important;
+	-webkit-text-fill-color:var(--pod-commerce-ink,#101827)!important;
+	caret-color:var(--pod-commerce-ink,#101827)!important;
+	border-color:rgba(148,163,184,.38)!important;
+}
+
+.wpnfinite-woocommerce-main .wc-block-components-text-input input::placeholder,
+.wpnfinite-woocommerce-main .wc-block-components-address-form input::placeholder,
+.wpnfinite-woocommerce-main .wc-block-components-combobox input::placeholder,
+.wpnfinite-woocommerce-main .woocommerce-checkout input::placeholder,
+.wpnfinite-woocommerce-main .woocommerce-checkout textarea::placeholder{
+	color:var(--pod-commerce-placeholder,#8b98a8)!important;
+	-webkit-text-fill-color:var(--pod-commerce-placeholder,#8b98a8)!important;
+	opacity:1!important;
+}
+
+/* Browser autofill/paste must not turn white-on-white. */
+.wpnfinite-woocommerce-main .wc-block-components-text-input input:-webkit-autofill,
+.wpnfinite-woocommerce-main .wc-block-components-text-input input:-webkit-autofill:hover,
+.wpnfinite-woocommerce-main .wc-block-components-text-input input:-webkit-autofill:focus,
+.wpnfinite-woocommerce-main .wc-block-components-address-form input:-webkit-autofill,
+.wpnfinite-woocommerce-main .woocommerce-checkout input:-webkit-autofill,
+.wpnfinite-woocommerce-main .woocommerce-checkout input:-webkit-autofill:hover,
+.wpnfinite-woocommerce-main .woocommerce-checkout input:-webkit-autofill:focus{
+	-webkit-text-fill-color:var(--pod-commerce-ink,#101827)!important;
+	-webkit-box-shadow:0 0 0 1000px var(--pod-commerce-field,#f8fafc) inset!important;
+	box-shadow:0 0 0 1000px var(--pod-commerce-field,#f8fafc) inset!important;
+	transition:background-color 99999s ease-out 0s;
+}
+
+/* Floating labels need a visible neutral tone over light fields. */
+.wpnfinite-woocommerce-main .wc-block-components-text-input label,
+.wpnfinite-woocommerce-main .wc-block-components-combobox .wc-block-components-combobox-control label,
+.wpnfinite-woocommerce-main .wc-block-components-address-form label{
+	color:#657386!important;
+}
+
+/* Select/combobox text and icons. */
+.wpnfinite-woocommerce-main .wc-block-components-combobox,
+.wpnfinite-woocommerce-main .wc-block-components-country-input,
+.wpnfinite-woocommerce-main .wc-block-components-state-input{
+	color:var(--pod-commerce-ink,#101827)!important;
+}
+
+.wpnfinite-woocommerce-main .wc-block-components-combobox svg,
+.wpnfinite-woocommerce-main .wc-block-components-country-input svg,
+.wpnfinite-woocommerce-main .wc-block-components-state-input svg{
+	fill:var(--pod-commerce-ink,#101827)!important;
+	color:var(--pod-commerce-ink,#101827)!important;
+}
+
+/* Primary cart + checkout actions use PairOfDice green/cyan instead of Woo blue. */
+.wpnfinite-woocommerce-main .wc-block-cart__submit-button,
+.wpnfinite-woocommerce-main .wc-block-components-checkout-place-order-button,
+.wpnfinite-woocommerce-main .wc-block-components-button.wc-block-cart__submit-button,
+.wpnfinite-woocommerce-main .wc-block-components-button.wc-block-components-checkout-place-order-button,
+.wpnfinite-woocommerce-main .woocommerce-cart .checkout-button,
+.wpnfinite-woocommerce-main .woocommerce-checkout #place_order{
+	min-height:52px!important;
+	border:0!important;
+	border-radius:999px!important;
+	background:linear-gradient(135deg,var(--pod-commerce-green,#50e65b),var(--pod-commerce-cyan,#22b9d8))!important;
+	color:#04110a!important;
+	font-weight:850!important;
+	box-shadow:0 12px 32px rgba(80,230,91,.15)!important;
+	text-decoration:none!important;
+}
+
+.wpnfinite-woocommerce-main .wc-block-cart__submit-button:hover,
+.wpnfinite-woocommerce-main .wc-block-components-checkout-place-order-button:hover,
+.wpnfinite-woocommerce-main .woocommerce-cart .checkout-button:hover,
+.wpnfinite-woocommerce-main .woocommerce-checkout #place_order:hover{
+	filter:brightness(1.06);
+	transform:translateY(-1px);
+	color:#04110a!important;
+}
+
+/* Keep button labels dark even when Woo/WordPress inject nested spans. */
+.wpnfinite-woocommerce-main .wc-block-cart__submit-button *,
+.wpnfinite-woocommerce-main .wc-block-components-checkout-place-order-button *{
+	color:#04110a!important;
+}
+
+/* Checkout notice presentation. */
+.wpnfinite-woocommerce-main .wc-block-components-notice-banner{
+	border-radius:14px!important;
+}
+
+/* Order summary/cards should remain legible against PairOfDice dark surfaces. */
+.wpnfinite-woocommerce-main .wp-block-woocommerce-checkout-order-summary-block,
+.wpnfinite-woocommerce-main .wc-block-components-order-summary,
+.wpnfinite-woocommerce-main .wc-block-components-totals-wrapper{
+	color:#f8fafc;
+}
+
+/* Quantity selector and cart secondary controls. */
+.wpnfinite-woocommerce-main .wc-block-components-quantity-selector{
+	border-color:rgba(148,163,184,.28)!important;
+	background:#081524!important;
+}
+.wpnfinite-woocommerce-main .wc-block-components-quantity-selector input,
+.wpnfinite-woocommerce-main .wc-block-components-quantity-selector button{
+	color:#f8fafc!important;
+	background:transparent!important;
+}
+
+@media (max-width:700px){
+	.wpnfinite-woocommerce-main .wc-block-cart__submit-button,
+	.wpnfinite-woocommerce-main .wc-block-components-checkout-place-order-button{
+		width:100%;
+	}
+}

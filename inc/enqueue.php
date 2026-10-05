@@ -13,6 +13,10 @@ function wpnfinite_enqueue_assets() {
         'blocks'     => '/assets/css/blocks.css',
         'elementor'  => '/assets/css/elementor.css',
         'media-home' => '/assets/css/media-home.css',
+        'homepage'   => '/assets/css/homepage.css',
+        'editorial'  => '/assets/css/editorial.css',
+        'services'   => '/assets/css/services.css',
+        'creator-intelligence' => '/assets/css/creator-intelligence.css',
     );
     foreach ( $css_files as $handle => $path ) {
         wp_enqueue_style( 'wpnfinite-' . $handle, WPNFINITE_URI . $path, array(), WPNFINITE_VERSION );
@@ -22,6 +26,6 @@ function wpnfinite_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'wpnfinite_enqueue_assets' );
 
 function wpnfinite_editor_assets() {
-    add_editor_style( array( 'assets/css/base.css', 'assets/css/blocks.css' ) );
+    add_editor_style( array( 'assets/css/base.css', 'assets/css/blocks.css', 'assets/css/editorial.css', 'assets/css/services.css', 'assets/css/creator-intelligence.css' ) );
 }
 add_action( 'after_setup_theme', 'wpnfinite_editor_assets' );

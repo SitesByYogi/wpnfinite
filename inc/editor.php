@@ -10,6 +10,8 @@ function wpnfinite_register_block_patterns() {
         'faq'          => 'FAQ Section',
         'content-grid' => 'Content Grid',
         'cta'          => 'CTA Strip',
+        'services-hub' => 'Media Services Hub',
+        'artist-spotlight' => 'Artist Spotlight Service Page',
     );
     foreach ( $pattern_files as $slug => $title ) {
         $file = WPNFINITE_PATH . '/patterns/' . $slug . '.php';

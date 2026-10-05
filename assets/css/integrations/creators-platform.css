@@ -1,0 +1,134 @@
+/* WPNfinite 1.4.2 + Nfinite Creators 0.56+ platform UX */
+.wpnfinite-fan-action{width:40px;height:40px;border:1px solid rgba(148,163,184,.22);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;color:#e8f1fb;text-decoration:none;font-size:1.1rem;background:rgba(15,23,42,.35)}
+.wpnfinite-fan-action:hover{background:rgba(148,163,184,.1);color:#fff}
+.wpnfinite-header-notifications{display:inline-flex;align-items:center;justify-content:center}.wpnfinite-header-notifications .nfinite-notification-bell{margin:0}
+.wpnfinite-header-notifications a,.wpnfinite-header-notifications button{min-width:40px;min-height:40px;border-radius:999px}
+.wpnfinite-platform-sponsor{margin-top:24px}.wpnfinite-platform-sponsor:empty{display:none}
+.wpnfinite-platform-discovery{margin-top:28px;margin-bottom:34px}
+.wpnfinite-platform-context .wpnfinite-entry-content{max-width:none}
+
+/* Fan actions from Personal Library + Playlists */
+.nfinite-library-action,.nfinite-add-to-playlist button,.nfinite-playlist-create button{border:1px solid rgba(148,163,184,.22);border-radius:999px;padding:.68rem 1rem;font:inherit;font-weight:800;cursor:pointer;background:#fff;color:#0f172a}
+.nfinite-library-action:hover,.nfinite-add-to-playlist button:hover,.nfinite-playlist-create button:hover{transform:translateY(-1px)}
+.nfinite-add-to-playlist-inline{margin:24px 0;padding:14px 16px;border:1px solid rgba(148,163,184,.18);border-radius:16px;background:rgba(148,163,184,.06)}
+.nfinite-add-to-playlist{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.nfinite-add-to-playlist select,.nfinite-playlist-create input,.nfinite-playlist-create select{min-height:42px;border:1px solid rgba(148,163,184,.28);border-radius:12px;padding:0 12px;background:var(--wpnfinite-surface,#fff);color:inherit}
+.nfinite-add-playlist-link{display:inline-flex;padding:.7rem 1rem;border:1px solid rgba(148,163,184,.24);border-radius:999px;font-weight:800}
+[data-playlist-add-message],[data-playlist-message]{font-size:.83rem;font-weight:700;opacity:.8}
+
+/* Platform utility pages */
+.nfinite-discovery-hub,.nfinite-personal-library,.nfinite-playlist-builder,.nfinite-playlists-directory,.nfinite-search,.nfinite-notifications,.nfinite-opportunities,.nfinite-organizations-directory{width:min(1180px,calc(100% - 32px));margin:44px auto 72px}
+.nfinite-discovery-hero,.nfinite-personal-library>header,.nfinite-playlist-builder>header,.nfinite-playlists-directory>header{margin-bottom:28px}
+.nfinite-eyebrow{display:block;margin-bottom:7px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--wpnfinite-primary)}
+.nfinite-library-summary{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 28px}
+.nfinite-library-summary span{padding:10px 14px;border:1px solid rgba(148,163,184,.16);border-radius:999px;background:rgba(148,163,184,.07)}
+.nfinite-playlist-create{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 26px}
+.nfinite-playlist-owned{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.nfinite-playlist-owned article{padding:16px;border:1px solid rgba(148,163,184,.16);border-radius:16px;background:rgba(148,163,184,.05)}
+
+/* First-class playlist cards/items */
+.nfinite-playlist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.nfinite-playlist{border:1px solid rgba(148,163,184,.16);border-radius:20px;overflow:hidden;background:rgba(15,23,42,.05)}
+.nfinite-playlist>header{padding:18px}.nfinite-playlist-items{padding:0 18px 18px}
+.nfinite-playlist-item{display:grid;grid-template-columns:28px 54px minmax(0,1fr);gap:10px;align-items:center;padding:10px 0;border-top:1px solid rgba(148,163,184,.12)}
+.nfinite-playlist-thumb{width:54px;height:54px;border-radius:10px;overflow:hidden}.nfinite-playlist-thumb img{width:100%;height:100%;object-fit:cover}
+.nfinite-playlist-index{font-variant-numeric:tabular-nums;opacity:.6}
+
+/* Discovery/search cards from plugin inherit theme spacing without theme owning ranking. */
+.nfinite-discovery-feed{margin:0 0 34px}.nfinite-discovery-feed>header{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}.nfinite-discovery-feed h2{margin:0}
+.nfinite-discovery-grid,.nfinite-search-results,.nfinite-library-grid{gap:16px}
+
+.nfinite-monetization-placement{border-radius:18px;overflow:hidden}.nfinite-monetization-placement a{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid rgba(148,163,184,.16);border-radius:18px;text-decoration:none}.nfinite-monetization-placement img{max-width:180px;border-radius:12px}
+
+@media(max-width:900px){.nfinite-playlist-grid,.nfinite-playlist-owned{grid-template-columns:repeat(2,minmax(0,1fr))}.wpnfinite-header-actions{gap:7px}}
+@media(max-width:680px){.wpnfinite-library-link{display:none}.wpnfinite-header-notifications a,.wpnfinite-header-notifications button{min-width:38px;min-height:38px}.nfinite-playlist-grid,.nfinite-playlist-owned{grid-template-columns:1fr}.nfinite-playlist-create{align-items:stretch}.nfinite-playlist-create>*{width:100%}.nfinite-add-to-playlist{align-items:stretch}.nfinite-add-to-playlist select{flex:1 1 100%}.nfinite-add-to-playlist button{flex:1 1 100%}.nfinite-monetization-placement a{align-items:flex-start;flex-direction:column}.nfinite-monetization-placement img{max-width:100%}}
+
+
+/* 1.4.1: Keep text readable on Nfinite white cards against WPNfinite's dark UI. */
+.nfinite-search-card,
+.nfinite-search-card__body,
+.nfinite-search-card h3,
+.nfinite-search-card h3 a,
+.nfinite-search-card p,
+.nfinite-search-card__type {
+    color:#0f172a;
+}
+.nfinite-search-card__type { opacity:.7; }
+.nfinite-search-card p { opacity:.78; }
+
+/* Other Nfinite components also use white card surfaces. Do not allow global
+   theme link/text colors to bleed into those surfaces. */
+.nfinite-search-card a:not(.nfinite-library-action),
+.nfinite-search-card a:visited:not(.nfinite-library-action) {
+    color:#0f172a;
+}
+.nfinite-search-card .nfinite-library-action,
+.nfinite-search-card .nfinite-library-action:visited {
+    color:#0f172a;
+}
+
+
+/* 1.4.2: Nfinite discovery/library cards use a white plugin surface. Keep all
+   card copy readable on the dark WPNfinite homepage and utility pages. */
+.nfinite-discovery-card,
+.nfinite-discovery-card-body,
+.nfinite-discovery-card-body small,
+.nfinite-discovery-card-body h3,
+.nfinite-discovery-card-body h3 a,
+.nfinite-discovery-card-body p,
+.nfinite-library-card,
+.nfinite-library-card > div,
+.nfinite-library-card small,
+.nfinite-library-card h3,
+.nfinite-library-card h3 a {
+    color:#0f172a;
+}
+.nfinite-discovery-card a:not(.nfinite-library-action),
+.nfinite-discovery-card a:visited:not(.nfinite-library-action),
+.nfinite-library-card a:not(.nfinite-library-action),
+.nfinite-library-card a:visited:not(.nfinite-library-action) {
+    color:#0f172a;
+}
+.nfinite-discovery-card .nfinite-library-action,
+.nfinite-discovery-card .nfinite-library-action:visited,
+.nfinite-library-card .nfinite-library-action,
+.nfinite-library-card .nfinite-library-action:visited {
+    color:#0f172a;
+}
+.nfinite-discovery-card-body small,
+.nfinite-library-card small { opacity:.68; }
+.nfinite-discovery-card-body p { opacity:.75; }
+
+
+/* 1.4.3: Hard override for Nfinite plugin card typography.
+   Nfinite outputs its card styles after the theme integration stylesheet on some
+   requests, so its `color: inherit` rules can win the cascade. These selectors
+   intentionally use higher specificity + !important only on white Nfinite card
+   surfaces. */
+body .nfinite-discovery-card .nfinite-discovery-card-body,
+body .nfinite-discovery-card .nfinite-discovery-card-body small,
+body .nfinite-discovery-card .nfinite-discovery-card-body h3,
+body .nfinite-discovery-card .nfinite-discovery-card-body h3 a,
+body .nfinite-discovery-card .nfinite-discovery-card-body p,
+body .nfinite-search-card .nfinite-search-card-body,
+body .nfinite-search-card .nfinite-search-card-body small,
+body .nfinite-search-card .nfinite-search-card-body h3,
+body .nfinite-search-card .nfinite-search-card-body h3 a,
+body .nfinite-search-card .nfinite-search-card-body p,
+body .nfinite-library-card,
+body .nfinite-library-card small,
+body .nfinite-library-card h3,
+body .nfinite-library-card h3 a,
+body .nfinite-library-card p {
+    color:#0f172a !important;
+}
+body .nfinite-discovery-card .nfinite-discovery-card-body a:not(.nfinite-library-action),
+body .nfinite-search-card .nfinite-search-card-body a:not(.nfinite-library-action),
+body .nfinite-library-card a:not(.nfinite-library-action) {
+    color:#0f172a !important;
+}
+body .nfinite-discovery-card .nfinite-library-action,
+body .nfinite-search-card .nfinite-library-action,
+body .nfinite-library-card .nfinite-library-action {
+    color:#0f172a !important;
+}

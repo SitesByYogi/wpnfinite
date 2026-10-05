@@ -9,6 +9,7 @@
 <?php wp_body_open(); ?>
 <?php if ( ! wpnfinite_is_elementor_canvas() ) : ?>
 <header class="wpnfinite-header" id="site-header">
+    <?php wpnfinite_render_pairofdice_ecosystem_nav(); ?>
     <div class="wpnfinite-container wpnfinite-header-inner">
         <div class="wpnfinite-branding">
             <?php if ( has_custom_logo() ) : ?>
@@ -22,21 +23,22 @@
         </div>
         <button class="wpnfinite-nav-toggle" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span><span class="screen-reader-text"><?php esc_html_e( 'Toggle navigation', 'wpnfinite' ); ?></span></button>
         <nav id="site-navigation" class="wpnfinite-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'wpnfinite' ); ?>">
-            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container' => false, 'menu_class' => 'wpnfinite-menu', 'fallback_cb' => 'wpnfinite_primary_menu_fallback', 'depth' => 2 ) ); ?>
+            <?php wpnfinite_render_strategic_primary_nav(); ?>
         </nav>
         <div class="wpnfinite-header-actions">
-            <a class="wpnfinite-search-link" href="<?php echo esc_url( home_url( '/?s=' ) ); ?>" aria-label="<?php esc_attr_e( 'Search', 'wpnfinite' ); ?>">⌕</a>
-            <a class="wpnfinite-btn wpnfinite-btn-primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Get Started', 'wpnfinite' ); ?></a>
+            <a class="wpnfinite-search-link" href="<?php echo esc_url( function_exists( 'wpnfinite_platform_search_url' ) ? wpnfinite_platform_search_url() : home_url( '/?s=' ) ); ?>" aria-label="<?php esc_attr_e( 'Search', 'wpnfinite' ); ?>">⌕</a>
+            <?php if ( function_exists( 'wpnfinite_render_fan_header_actions' ) ) { wpnfinite_render_fan_header_actions(); } ?>
+            <?php if ( function_exists( 'wpnfinite_render_account_header_action' ) ) { wpnfinite_render_account_header_action(); } ?>
         </div>
     </div>
-    <div class="wpnfinite-topics-bar">
+    <?php if ( ! is_front_page() ) : ?><div class="wpnfinite-topics-bar">
         <div class="wpnfinite-container">
-            <span class="wpnfinite-topics-label"><?php esc_html_e( 'Explore', 'wpnfinite' ); ?></span>
+            <span class="wpnfinite-topics-label"><?php echo esc_html( wpnfinite_secondary_navigation_label() ); ?></span>
             <nav aria-label="<?php esc_attr_e( 'Topics menu', 'wpnfinite' ); ?>">
-                <?php wp_nav_menu( array( 'theme_location' => 'topics', 'container' => false, 'menu_class' => 'wpnfinite-topics-menu', 'fallback_cb' => 'wpnfinite_topics_menu_fallback', 'depth' => 1 ) ); ?>
+                <?php wpnfinite_render_secondary_navigation(); ?>
             </nav>
         </div>
-    </div>
+    </div><?php endif; ?>
 </header>
 <?php endif; ?>
 <div id="page" class="site"><main id="primary" class="site-main">

@@ -17,23 +17,84 @@ function wpnfinite_media_post_types() {
 }
 
 /**
- * Public-facing labels. ShopBlocks' live "shoppable" content type is Collections.
+ * Resolve a useful primary category for a standard WordPress post.
+ *
+ * WordPress core does not have a primary-category concept, so WPNfinite first
+ * honors common SEO-plugin primary-category metadata and then falls back to
+ * the first useful assigned category. Uncategorized is skipped when another
+ * category is available.
+ */
+function wpnfinite_media_primary_category( $post_id ) {
+    $post_id = absint( $post_id );
+
+    if ( ! $post_id || 'post' !== get_post_type( $post_id ) || ! taxonomy_exists( 'category' ) ) {
+        return null;
+    }
+
+    $primary_candidates = array(
+        get_post_meta( $post_id, '_yoast_wpseo_primary_category', true ),
+        get_post_meta( $post_id, 'rank_math_primary_category', true ),
+    );
+
+    foreach ( $primary_candidates as $term_id ) {
+        $term_id = absint( $term_id );
+
+        if ( $term_id && has_term( $term_id, 'category', $post_id ) ) {
+            $term = get_term( $term_id, 'category' );
+
+            if ( $term && ! is_wp_error( $term ) ) {
+                return apply_filters( 'wpnfinite_media_primary_category', $term, $post_id );
+            }
+        }
+    }
+
+    $categories = get_the_category( $post_id );
+
+    if ( empty( $categories ) || is_wp_error( $categories ) ) {
+        return null;
+    }
+
+    $default_category_id = absint( get_option( 'default_category' ) );
+
+    foreach ( $categories as $category ) {
+        if ( count( $categories ) > 1 && (
+            ( $default_category_id && $default_category_id === (int) $category->term_id ) ||
+            'uncategorized' === $category->slug
+        ) ) {
+            continue;
+        }
+
+        return apply_filters( 'wpnfinite_media_primary_category', $category, $post_id );
+    }
+
+    return apply_filters( 'wpnfinite_media_primary_category', reset( $categories ), $post_id );
+}
+
+/**
+ * Public-facing media labels. Standard posts use their primary category;
+ * specialist content types keep their own content-type label.
  */
 function wpnfinite_media_type_label( $post_id ) {
     $type = get_post_type( $post_id );
 
-    $labels = array(
-        'post'       => __( 'Story', 'wpnfinite' ),
-        'blog'       => __( 'Blog', 'wpnfinite' ),
-        'collection' => __( 'Collection', 'wpnfinite' ),
-    );
+    if ( 'post' === $type ) {
+        $category = wpnfinite_media_primary_category( $post_id );
 
-    return apply_filters(
-        'wpnfinite_media_type_label',
-        isset( $labels[ $type ] ) ? $labels[ $type ] : ucfirst( (string) $type ),
-        $post_id,
-        $type
-    );
+        if ( $category instanceof WP_Term ) {
+            $label = $category->name;
+        } else {
+            $label = __( 'Story', 'wpnfinite' );
+        }
+    } else {
+        $labels = array(
+            'blog'       => __( 'Blog', 'wpnfinite' ),
+            'collection' => __( 'Collection', 'wpnfinite' ),
+        );
+
+        $label = isset( $labels[ $type ] ) ? $labels[ $type ] : ucfirst( (string) $type );
+    }
+
+    return apply_filters( 'wpnfinite_media_type_label', $label, $post_id, $type );
 }
 
 function wpnfinite_media_query( $args = array() ) {
@@ -212,7 +273,7 @@ function wpnfinite_media_category_terms( $limit = 3, $exclude_term_ids = array()
 function wpnfinite_media_category_query( $term_id, $limit = 4, $exclude = array() ) {
     return wpnfinite_media_query(
         array(
-            'post_type'      => array_values( array_intersect( wpnfinite_media_post_types(), array( 'post', 'blog' ) ) ),
+            'post_type'      => 'post',
             'posts_per_page' => absint( $limit ),
             'post__not_in'   => array_map( 'absint', $exclude ),
             'tax_query'      => array(
